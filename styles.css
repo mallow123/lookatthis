@@ -1,0 +1,345 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & HTML */
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1f1f2e, #4a4a6d);
+    overflow: hidden;
+}
+
+/* Desktop Styles */
+.desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px;
+    height: 100vh;
+    overflow: auto; /* Ensures content scrolls if icons exceed screen size */
+}
+
+/* Desktop Icon Styles */
+.desktop-icon {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Icon Image and Label */
+.icon-image {
+    width: 48px;
+    height: 48px;
+}
+
+.icon-label {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* Window Styles */
+.window {
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    width: 300px;
+    background-color: #2e2e44;
+    border: 2px solid #55557a;
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* Window Header */
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #444466;
+    color: white;
+}
+
+.window-title {
+    font-weight: bold;
+}
+
+/* Close Button */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Window Content */
+.window-content {
+    padding: 16px;
+    color: white;
+}
+
+/* Taskbar Styles */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #33334d;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+/* Start Menu Button */
+.start-menu-btn {
+    background-color: #5d5d89;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Taskbar Styles */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #33334d;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+/* Start Menu Button */
+.start-menu-btn {
+    background-color: #5d5d89;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Taskbar Icons */
+.taskbar-icons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* Push icons to the right side */
+}
+
+.taskbar-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.taskbar-icon:hover {
+    color: #5d5d89;
+    transform: scale(1.1);
+}
+
+.taskbar-icon:active {
+    color: #a5a5c0;
+}
+
+/* Start Menu Button */
+.start-menu-btn {
+    background-color: #5d5d89;
+    border: none;
+    padding: 8px 16px; /* Smaller padding for compact size */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px; /* Rounded corners */
+    width: auto; /* Let the button adjust based on text */
+    display: inline-block; /* Display inline for compact look */
+    text-align: center; /* Center text inside button */
+    font-size: 14px; /* Smaller font size */
+}
+
+/* Start Menu Styles */
+.start-menu {
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    width: 150px; /* Adjust width of the menu */
+    background-color: #33334d;
+    color: white;
+    border: 2px solid #55557a;
+    display: none;
+    z-index: 200;
+}
+
+.start-menu ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.start-menu li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.start-menu li:hover {
+    background-color: #5d5d89;
+}
+
+/* Notepad Styles */
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #55557a;
+    background-color: #33334d;
+    color: white;
+    resize: none;
+}
+
+textarea:focus {
+    outline: 2px solid #5d5d89;
+    background-color: #2e2e44;
+}
+
+/* Button Focus Styling */
+button:focus {
+    outline: 2px solid #5d5d89;
+}
+
+/* Media Query for Smaller Screens */
+@media screen and (max-width: 600px) {
+    .window {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+/* Tic-Tac-Toe Styles */
+#ticTacToeGameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.tic-tac-toe-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #55557a;
+    background-color: #2e2e44;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tic-tac-toe-cell:hover {
+    background-color: #55557a;
+}
+
+.tic-tac-toe-cell:active {
+    background-color: #33334d;
+}
+
+button {
+    background-color: #5d5d89;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #444466;
+}
+
+button:active {
+    background-color: #33334d;
+}
+
+/* Focus Outline for Buttons */
+button:focus {
+    outline: 2px solid #5d5d89;
+}
+/* Tic-Tac-Toe Game Board Styling */
+#ticTacToeGameBoard {
+    width: 300px;  /* Set the width of the game board */
+    height: 300px;  /* Set the height of the game board */
+    margin: 0 auto;  /* Center the game board */
+    border: 3px solid #000; /* Add a border around the game board */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    padding: 5px;
+    box-sizing: border-box;  /* Ensure padding is included in width/height */
+    position: relative; /* Allow for absolute positioning of cells */
+}
+
+#ticTacToeGameBoard .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(3, 1fr);    /* 3 rows */
+    gap: 0;  /* Remove gap between cells to make them flush */
+    width: 100%;  /* Fill the available space */
+    height: 100%; /* Fill the available space */
+}
+
+#ticTacToeGameBoard .cell {
+    background-color: transparent;  /* Transparent background */
+    border: 2px solid #ccc;  /* Light border around cells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    width: 100%;  /* Cells will stretch to fill their parent */
+    height: 100%; /* Cells will stretch to fill their parent */
+    box-sizing: border-box;  /* Ensure border does not affect size */
+}
+
+#ticTacToeGameBoard .cell:hover {
+    background-color: rgba(0, 0, 0, 0.1);  /* Slight hover effect */
+}
+
+#ticTacToeGameBoard button {
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box; /* Ensure button fits properly */
+}

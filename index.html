@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veil OS Interface</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Desktop area -->
+  <div class="desktop">
+    <!-- Taskbar -->
+    <div class="taskbar">
+      <button class="start-menu-btn" onclick="toggleStartMenu()">Veil OS Menu</button>
+      <!-- Taskbar icons -->
+      <div class="taskbar-icons">
+        <span class="taskbar-icon">🌐</span>
+        <span class="taskbar-icon">📂</span>
+        <span class="taskbar-icon">🎮</span>
+      </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div class="start-menu" id="startMenu">
+      <ul>
+        <li onclick="openApp('ticTacToeWindow')">Tic-Tac-Toe</li>
+        <li onclick="openApp('settingsWindow')">Settings</li>
+        <li onclick="openApp('fileExplorerWindow')">File Explorer</li>
+        <li onclick="openApp('notepadWindow')">Notepad</li>
+      </ul>
+    </div>
+
+    <!-- Windows for each app -->
+    <div class="window" id="ticTacToeWindow">
+      <div class="window-header">
+        <span class="window-title">Tic-Tac-Toe</span>
+        <button class="close-btn" onclick="closeApp('ticTacToeWindow')">X</button>
+      </div>
+      <div class="window-content">
+        <div id="ticTacToeGameBoard">
+          <h3>Tic-Tac-Toe</h3>
+          <div class="board">
+            <div class="row">
+              <div class="cell" onclick="handleCellClick(0)"></div>
+              <div class="cell" onclick="handleCellClick(1)"></div>
+              <div class="cell" onclick="handleCellClick(2)"></div>
+            </div>
+            <div class="row">
+              <div class="cell" onclick="handleCellClick(3)"></div>
+              <div class="cell" onclick="handleCellClick(4)"></div>
+              <div class="cell" onclick="handleCellClick(5)"></div>
+            </div>
+            <div class="row">
+              <div class="cell" onclick="handleCellClick(6)"></div>
+              <div class="cell" onclick="handleCellClick(7)"></div>
+              <div class="cell" onclick="handleCellClick(8)"></div>
+            </div>
+          </div>
+          <button onclick="resetGame()">Reset Game</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text File Icon on Desktop -->
+    <div class="desktop-icon" onclick="openApp('textFileWindow')">
+      <img src="notepad.jpg" alt="File Icon" class="icon-image">
+      <span class="icon-label">MyTextFile.txt</span>
+    </div>
+
+    <!-- File Explorer Icon on Desktop -->
+    <div class="desktop-icon file-explorer" onclick="openApp('fileExplorerWindow')">
+      <img src="file.jpg" alt="File Explorer Icon" class="icon-image">
+      <span class="icon-label">File Explorer</span>
+    </div>
+
+    <!-- Tic-Tac-Toe Icon on Desktop -->
+    <div class="desktop-icon tic-tac-toe" onclick="openApp('ticTacToeWindow')">
+      <img src="game.png" alt="Tic-Tac-Toe Icon" class="icon-image">
+      <span class="icon-label">Tic-Tac-Toe</span>
+    </div>
+
+    <!-- Text File Window -->
+    <div class="window" id="textFileWindow">
+      <div class="window-header">
+        <span class="window-title">MyTextFile.txt</span>
+        <button class="close-btn" onclick="closeApp('textFileWindow')">X</button>
+      </div>
+      <div class="window-content">
+        <pre id="fileContentDisplay"></pre>
+      </div>
+    </div>
+
+    <!-- File Explorer Window -->
+    <div class="window" id="fileExplorerWindow">
+      <div class="window-header">
+        <span class="window-title">File Explorer</span>
+        <button class="close-btn" onclick="closeApp('fileExplorerWindow')">X</button>
+      </div>
+      <div class="window-content">
+        <ul id="fileExplorerList">
+          <!-- File list will be dynamically inserted here by JavaScript -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Settings Window -->
+    <div class="window" id="settingsWindow">
+      <div class="window-header">
+        <span class="window-title">Settings</span>
+        <button class="close-btn" onclick="closeApp('settingsWindow')">X</button>
+      </div>
+      <div class="window-content">
+        <p>Settings panel content.</p>
+      </div>
+    </div>
+
+    <!-- Notepad App Window -->
+    <div class="window" id="notepadWindow">
+      <div class="window-header">
+        <span class="window-title">Notepad</span>
+        <button class="close-btn" onclick="closeApp('notepadWindow')">X</button>
+      </div>
+      <div class="window-content">
+        <textarea id="notepadTextArea" placeholder="Type your notes here..."></textarea>
+        <button onclick="saveNote()">Save</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
